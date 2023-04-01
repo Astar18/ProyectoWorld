@@ -1,0 +1,33 @@
+{% extends 'core/index.html' %} 
+{%block title%}Blog{% endblock %} 
+{% block content %}
+{% load static %}
+<!-- blog section start -->
+{% for blog in blogs %}
+   <div class="blog_section layout_padding">
+      <div class="container">
+         <h1 class="blog_taital">See Our Video</h1>
+         <p class="blog_text">many variations of passages of Lorem Ipsum available, but the majority have suffered
+            alteration in some form, by injected humour, or randomised words which</p>
+         <div class="play_icon_main">
+            <div class="play_icon">
+            {% if blog.image.url != null %}
+            <a href="#"><img src="{%static 'core/images/play-icon.png'%}"></a>
+            {% endif %}
+            <p class="blog_text">{{blog.content}}</p>
+          <p class="blog_text">
+            <span class="section-heading-under"
+              >Publicado por <em><b>{{blog.author}}</b></em> en
+              <em>
+              {%for category in blog.categories.all%}
+              <a href="{%url 'category' category.id%}" class="link">{{category.name}}</a>{%if not forloop.last%},{%endif%}{%endfor%}
+              </em
+              ></span
+            >
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- blog section end -->
+{% endfor %}
+{% endblock %}

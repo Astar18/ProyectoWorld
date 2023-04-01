@@ -1,0 +1,32 @@
+{% extends 'core/index.html' %}
+  {%block title%}Servicios{% endblock %}
+  
+  
+  {% block content %}
+  {%load static%}
+  {% for service in services %}
+<!-- services section start -->
+   <div class="services_section layout_padding">
+      <div class="container">
+         <h1 class="services_taital">Services </h1>
+         <p class="services_text">There are many variations of passages of Lorem Ipsum available, but the majority have
+            suffered alteration</p>
+         <div class="services_section_2">
+            <div class="row">
+               <div class="col-md-4">
+                  <div><img src="{{service.image.url}}" class="services_img"></div>
+                  <div class="btn_main"><a href="#">{{service.title}}</a></div>
+                  <div class="btn_main"><a href="#">{{service.subtitle}}</a></div>
+                  <div class="bg-faded p-5 rounded">
+              <p class="services_text">{{service.content}}</p>
+            </div>
+               </div>
+               
+               
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- services section end -->
+   {% endfor %}
+   {% endblock %}
